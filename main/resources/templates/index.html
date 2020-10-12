@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+	<meta charset="UTF-8" />
+	<title>XBRL-JSON Converter</title>
+	<script src='https://code.angularjs.org/1.5.9/angular.min.js'></script>
+	<script src='./js/app.js'></script>
+	<script src='./js/ng-file-upload-shim.min.js'></script> 
+	<script src='./js/ng-file-upload.min.js'></script>
+	<link rel="stylesheet" type="text/css" href="./css/xbrlapi.css">
+</head>
+<body ng-controller="xbrlController">
+	
+	<header>
+		<img src="./img/xbrl-json.jpg">
+  	</header>
+  	
+  <div id='body'>	
+  	
+  	<div id="key">
+	  	<p style="font-family:verdana;font-size:12px;">Email:
+	  	<input type="text" placeholder="a valid email" ng-model='key' size="25" > (<a style="font-style:italic">tool needs it to send the XBRL-JSON file </a>) </p>
+  	</div>
+
+  	<div id="xml">
+	  	<p style="font-family:verdana;font-size:12px;">Select:</p>
+	  	<button type="file" ngf-select="uploadFiles($file)">xBRL-XML Instance</button>
+  	</div>
+  	
+  	<div id="url">
+	  	<p style="font-family:verdana;font-size:12px;">or URL:</p>
+	  	<input type="text" ng-model='user_url' size="53" >
+	  	<button ng-click="sendUrl()">ok</button>
+  	</div>
+
+	<div id="json" style="font-family:verdana;font-size:12px;">
+		Processing of {{ filename }}. {{sss}}<br/>
+		<textarea rows="12" cols="90" readonly onkeypress="javascript:alert('This XBRL-JSON doc has been sent to your email. =)');" onmousedown="javascript:alert('This XBRL-JSON doc has been sent by email. =)');">{{f}}</textarea><br/>
+		Current Message: {{ msg }}
+		<br><br>
+	  	<button ng-click="init()">Empty all form</button></p>
+		<br>
+		
+ 		<p style="font-family:verdana;font-size:10px;">&#10003; 	<a href="https://marcioalexandre.wordpress.com/projects/xbrl-parser/" target="_blank">User Manual</a>,
+ 					<a href="https://marcioalexandre.wordpress.com/contact/" target="_blank">doubt & suggestion</a></p>
+ 		<p style="font-family:verdana;font-size:10px;"> <a href="https://www.youtube.com/watch?v=puP_oZgJQo0" target="_blank">Youtube video: How to store XBRL-JSON docs in MongoDB </a> </p>
+		<p style="font-family:verdana;font-size:10px;">This XBRL-Parser version is based on <a href="http://www.xbrl.org/Specification/xbrl-json/CR-2017-05-02/xbrl-json-CR-2017-05-02.html" target="_blank">xBRL-JSON specification</a> (CR-02 May 2017).</p>
+		<p style="font-family:verdana;font-size:10px;">Attention: "Simple fact" order (in Json file) is not necessarily maintained as saved in XML file. In order to find it, search by its Id or Concept attrs.</p>
+		<p style="font-family:verdana;font-size:10px;">Developed by <a href="https://www.linkedin.com/in/marcioalexandre83/" target="_blank">Marcio Alexandre</a> </p>
+ 	</div>
+  </div>
+</body>
+</html>

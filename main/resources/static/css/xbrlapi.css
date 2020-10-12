@@ -1,0 +1,41 @@
+#body {
+	position:absolute;
+	top: 160px;
+  	left: 80px;
+	width: 700px;
+	height: 420px;
+	border: 1px solid;
+	border-color: #DCDCDC;
+}
+#key{
+	position:absolute;
+	margin-top:10px;
+	margin-left:10px;
+	width: 650px;
+	height: 40px;
+}
+#xml {
+	position:absolute;
+	margin-top:60px;
+	margin-left:10px;
+	height: 60px;
+	background-color: white;
+}
+
+#url{
+	position:absolute;
+	margin-top:60px;
+	margin-left:170px;
+	width: 450px;
+	height: 60px;
+	background-color: white;
+}
+
+#json {
+	position:absolute;
+	margin-top:140px;
+	margin-left:10px;
+	width: 600px;
+	height: 300px;
+	border: 0px solid;
+}
