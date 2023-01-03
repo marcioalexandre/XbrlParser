@@ -4,9 +4,7 @@ Your XBRL-based financial/business document from XML to JSON format, according t
 
 How to convert a xBRL-XML report to xBRL-JSON (via file): https://youtu.be/Xr6v4jL535w;
 
-How to convert a xBRL-XML file to xBRL-JSON (via URL): https://youtu.be/kr9j4f1-GCY; 
-
-To access the web app: https://xbrlframework.herokuapp.com;
+How to convert a xBRL-XML file to xBRL-JSON (via URL): https://youtu.be/kr9j4f1-GCY;
 
 For Developers:
 
