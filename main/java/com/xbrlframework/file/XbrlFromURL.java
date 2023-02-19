@@ -12,6 +12,7 @@ import java.io.InputStreamReader;
 import java.io.Reader;
 import java.net.MalformedURLException;
 import java.net.URL;
+import java.net.URLConnection;
 
 import javax.xml.parsers.DocumentBuilder;
 import javax.xml.parsers.DocumentBuilderFactory;
@@ -25,7 +26,7 @@ public class XbrlFromURL implements Xbrl {
 	
 	private URL url;
 	
-	protected XbrlFromURL (String address) {
+	public XbrlFromURL(String address) {
 		URL url = null;
 		try {
 			url = new URL(address);
@@ -39,7 +40,12 @@ public class XbrlFromURL implements Xbrl {
 		if (url != null) {
 			Document doc = null;
 			try {
-				InputStream inputStream = url.openStream();
+				URLConnection urlConnection = url.openConnection();
+				if(url.getHost().contains("sec")){
+				urlConnection.setRequestProperty("User-Agent","PostmanRuntime/7.30.0");
+				}
+				InputStream inputStream = urlConnection.getInputStream();
+
 				Reader reader = new InputStreamReader(inputStream,"UTF-8");
 				InputSource is = new InputSource(reader);
 				DocumentBuilder dBuilder = DocumentBuilderFactory.newInstance().newDocumentBuilder();
